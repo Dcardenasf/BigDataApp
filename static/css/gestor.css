@@ -1,0 +1,22 @@
+body {
+    background: linear-gradient(to right, #010a26, #05dbf2);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+.header {
+    background-color: rgba(4, 174, 242, 1, 0.9);
+    padding: 1rem 0;
+}
+.container {
+    background-color: rgba(4, 218, 242, 1, 0.9);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+}
+footer {
+    background-color: rgba(80, 129, 242, 0.9);
+    padding: 1rem 0;
+    margin-top: 2rem;
+    color: #023e73;
+}
