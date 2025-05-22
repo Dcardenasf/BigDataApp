@@ -40,8 +40,30 @@ def about():
 @app.route("/contacto", methods=["GET", "POST"])
 def contacto():
     if request.method == 'POST':
-        #
-        return redirect(url_for('contacto'))
+        client = connect_mongo()
+        if not client:
+            return render_template('login.html', error_message='Error de conexión con la base de datos. Por favor, intente más tarde.', version=VERSION_APP,creador=CREATOR_APP)
+        try:
+            db = client['administracion']
+            security_collection = db['contacto']
+            nombre = request.form.get('nombre')
+            email = request.form.get('email')
+            asunto = request.form.get('asunto')
+            mensaje = request.form.get('mensaje')
+            fecha = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            # Guardar el mensaje en la base de datos
+            security_collection.insert_one({
+                'nombre': nombre,
+                'email': email,
+                'asunto': asunto,
+                'mensaje': mensaje,
+                'fecha': fecha
+            })
+            return render_template('contacto.html', success_message='Mensaje enviado con éxito', version=VERSION_APP,creador=CREATOR_APP)
+        except Exception as e:
+            return render_template('contacto.html', error_message=f'Error al enviar el mensaje: {str(e)}', version=VERSION_APP,creador=CREATOR_APP)
+        finally:
+            client.close()  
     return render_template('contacto.html',version=VERSION_APP,creador=CREATOR_APP)
 
 @app.route('/buscador', methods=["GET", "POST"])
