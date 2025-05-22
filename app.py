@@ -33,6 +33,7 @@ def connect_mongo():
 @app.route('/')
 def index():
     return render_template('index.html',version=VERSION_APP, creador=CREATOR_APP)
+@app.route('/about')
 def about():
     return render_template('about.html', version=VERSION_APP,creador=CREATOR_APP)
 
@@ -77,7 +78,7 @@ def login():
             
             # Verificar credenciales en MongoDB
             user = security_collection.find_one({
-                'usuario': usuario,
+                'usuario': usuario
                 'password': password
             })
             
