@@ -76,6 +76,10 @@ def buscador():
         search_text = request.form.get('search_text')
         
         # TODO: Implementar la lógica de búsqueda
+
+
+
+
         return render_template('buscador.html',
                             version=VERSION_APP,
                             creador=CREATOR_APP)
