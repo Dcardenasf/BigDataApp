@@ -1,0 +1,102 @@
+/* bigdata-project.css */
+@import url('variables.css');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--dark) 100%);
+    color: var(--light);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.6;
+}
+
+.container {
+    background-color: rgba(12, 12, 12, 0.85);
+    border-radius: var(--border-radius-lg);
+    padding: 3rem;
+    max-width: 800px;
+    width: 90%;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(190, 242, 5, 0.1);
+    backdrop-filter: blur(8px);
+}
+
+h1 {
+    color: var(--accent-1);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+}
+
+h2 {
+    color: var(--accent-2);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+    font-size: 1.1rem;
+}
+
+.creator-info {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(190, 242, 5, 0.2);
+}
+
+.creator-info p {
+    margin-bottom: 0.5rem;
+}
+
+a {
+    color: var(--accent-2);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 400;
+}
+
+a:hover {
+    color: var(--accent-1);
+    text-decoration: underline;
+}
+
+.version {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: var(--spacing-md);
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+}
