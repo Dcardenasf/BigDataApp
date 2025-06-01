@@ -1,22 +1,105 @@
+/* landingPages.css - Marketing/Public Pages Styles */
 body {
-    background: linear-gradient(to right, #010a26, #05dbf2);
+    background: linear-gradient(135deg, #040240 0%, #7D8C0B 100%);
     min-height: 100vh;
     margin: 0;
     padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    color: #0D0D0D;
 }
+
 .header {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 1rem 0;
+    background-color: transparent;
+    padding: 1.5rem 0;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: 100;
 }
-.container {
+
+.logo {
+    color: #D7F205;
+    font-size: 2rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    padding-top: 5rem;
+    color: white;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: #BFF205;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: white;
+}
+
+.cta-button {
+    background-color: #BFF205;
+    color: #040240;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-block;
+    transition: all 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #D7F205;
+    transform: scale(1.05);
+}
+
+.features {
     background-color: rgba(255, 255, 255, 0.9);
-    padding: 2rem;
+    padding: 4rem 0;
+}
+
+.feature-card {
+    background-color: white;
     border-radius: 10px;
-    margin-top: 2rem;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
 }
+
+.feature-card h3 {
+    color: #7D8C0B;
+}
+
 footer {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 1rem 0;
-    margin-top: 2rem;
-    color: #023e73;
+    background-color: #040240;
+    color: #7D8C0B;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.footer-links a {
+    color: #D7F205;
+    margin: 0 1rem;
+    text-decoration: none;
+}
+
+.social-icons {
+    margin-top: 1.5rem;
+}
+
+.social-icons a {
+    color: #BFF205;
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
 }
