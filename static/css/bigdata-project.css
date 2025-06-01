@@ -97,7 +97,12 @@ a:hover {
     background-color: var(--accent-2);
     color: var(--dark);
 }
-
+.logo-section .container {
+    background: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+}
 @media (max-width: 768px) {
     .container {
         padding: var(--spacing-md);
