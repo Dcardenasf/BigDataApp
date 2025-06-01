@@ -76,27 +76,6 @@ def contacto():
             client.close()  
     return render_template('contacto.html',version=VERSION_APP,creador=CREATOR_APP)
 
-@app.route('/buscador', methods=["GET", "POST"])
-def buscador():
-    if request.method == 'POST':
-        # Aquí irá la lógica de búsqueda
-        search_type = request.form.get('search_type')
-        fecha_desde = request.form.get('fecha_desde')
-        fecha_hasta = request.form.get('fecha_hasta')
-        search_text = request.form.get('search_text')
-        
-        # TODO: Implementar la lógica de búsqueda
-
-
-
-
-        return render_template('buscador.html',
-                            version=VERSION_APP,
-                            creador=CREATOR_APP)
-    
-    return render_template('buscador.html',
-                         version=VERSION_APP,
-                         creador=CREATOR_APP)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
