@@ -99,7 +99,7 @@ def login():
             
             if user:
                 session['usuario'] = usuario
-                return redirect(url_for('gestion_proyecto'))
+                return redirect(url_for('gestion'))
             else:
                 return render_template('login.html', error_message='Usuario o contraseña incorrectos', version=VERSION_APP,creador=CREATOR_APP)
         except Exception as e:
@@ -110,7 +110,7 @@ def login():
     return render_template('login.html', version=VERSION_APP,creador=CREATOR_APP)
 
 
-@app.route('/gestion_proyecto', methods=['GET', 'POST'])
+@app.route('/gestion', methods=['GET', 'POST'])
 def gestion_proyecto():
     if 'usuario' not in session:
         return redirect(url_for('login'))
@@ -255,7 +255,7 @@ def crear_coleccion():
                     os.rmdir(os.path.join(root, dir))
             os.rmdir(temp_dir)
         
-        return redirect(url_for('gestion_proyecto', database=database))
+        return redirect(url_for('gestion', database=database))
         
     except Exception as e:
         return render_template('gestion/crear_coleccion.html',
