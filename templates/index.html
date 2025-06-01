@@ -10,37 +10,56 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bigdata-project.css') }}">
 </head>
 <body>
-    <header class="header">
-        <div class="logo-container">
-            <a href="/">
-                <img src="{{ url_for('static', filename='Images/logo.png') }}" alt="Logo Universidad Central" class="logo">
-            </a>    
+    <header class="main-header">
+        <div class="logo-section">
+            <div class="container">
+                <div class="text-center">
+                    <a href="/">
+                        <img src="{{ url_for('static', filename='Images/logo.png') }}"
+                        alt="Logo Universidad Central" 
+                        class="logo">
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="container">
-            <div class="d-flex justify-content-between align-items-center">
-                <h2 class="h3 mb-0">Proyecto BigData </h2>
-                <nav>
-                    <ul class="nav">
-                        <li class="nav-item"><a class="nav-link" href="/buscador"><b>Buscador</b></a></li>
-                        <li class="nav-item"><a class="nav-link" href="/about">Acerca de</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/login">Ingresar</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/contacto">Contacto</a></li>
-                    </ul>
-                </nav>
+        <div class="header-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h1 class="project-title">BigData APP</h1>
+                    </div>
+                    <div class="col-md-6">
+                        <nav class="main-navigation">
+                            <ul class="nav justify-content-end">
+                                <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/buscador">Buscador</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/about">Acerca de</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/login">Ingresar</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/contacto">Contacto</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
 
     <!-- Descripción del proyecto -->
-    <div class="container">
-        <div class="text-center">
-            <p class="lead">
-                Este proyecto es una aplicación web desarrollada para la gestión y análisis de datos utilizando MongoDB. 
-                Permite a los usuarios explorar bases de datos, visualizar colecciones y realizar consultas avanzadas 
-                sobre grandes volúmenes de información.
-            </p>
+    <main class="main-content">
+        <div class="container">
+            <h1 class="text-center mb-4">Proyecto final BigData</h1>
+            <h3 class="text-center mb-4">Maestría en analítica de datos</h3>
+            <p class="text-center mb-4">Este proyecto es una aplicación web desarrollada para la gestión y análisis de datos utilizando MongoDB. Permite a los usuarios explorar bases de datos, visualizar colecciones y realizar consultas avanzadas sobre grandes volúmenes de información.</p>
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center">
+                    <img src="{{ url_for('static', filename='Images/creador.png') }}" alt="Foto del creador" class="profile-img rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;">
+                    <h4>Daniel Mauricio Cardenas Forero</h4>
+                    <p>Estudiante de Maestría en Analítica de Datos</p>
+                    <p>Universidad Central</p>
+                </div>
+            </div>  
         </div>
-    </div>
+    </main>
 
     <footer class="text-center">
         <p class="mb-0">Creado por {{ creador }}</p>
