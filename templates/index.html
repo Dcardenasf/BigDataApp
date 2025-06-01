@@ -10,35 +10,29 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bigdata-project.css') }}">
 </head>
 <body>
-    <!-- Header con logo -->
     <header class="header">
         <div class="logo-container">
             <a href="/">
                 <img src="{{ url_for('static', filename='Images/logo.png') }}" alt="Logo Universidad Central" class="logo">
             </a>    
         </div>
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <h2 class="h3 mb-0">Proyecto BigData <b>[{{ usuario }}]</b></h2>
+                <nav>
+                    <ul class="nav">
+                        <li class="nav-item"><a class="nav-link" href="/buscador"><b>Buscador</b></a></li>
+                        <li class="nav-item"><a class="nav-link" href="/about">Acerca de</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/login">Ingresar</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/contacto">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </header>
 
-    <!-- Contenido principal -->
+    <!-- Descripción del proyecto -->
     <div class="container">
-        <!-- Título principal centrado -->
-        <div class="text-center mb-4">
-            <h1 class="display-4 fw-bold">Proyecto BigData</h1>
-            <p class="lead">Descripción</p>
-        </div>
-
-        <!-- Navegación centrada -->
-        <nav class="text-center mb-5">
-            <ul class="nav justify-content-center">
-                <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" href="/buscador">Buscador</a></li>
-                <li class="nav-item"><a class="nav-link" href="/about">Acerca de</a></li>
-                <li class="nav-item"><a class="nav-link" href="/login">Ingresar</a></li>
-                <li class="nav-item"><a class="nav-link" href="/contacto">Contacto</a></li>
-            </ul>
-        </nav>
-
-        <!-- Descripción del proyecto -->
         <div class="text-center mb-5">
             <p class="lead">
                 Este proyecto es una aplicación web desarrollada para la gestión y análisis de datos utilizando MongoDB. 
@@ -46,28 +40,8 @@
                 sobre grandes volúmenes de información.
             </p>
         </div>
-
-        <!-- Información del creador -->
-        <div class="text-center mb-5">
-            <div class="mb-4">
-                <img src="{{ url_for('static', filename='Images/creador.png') }}" 
-                     alt="Daniel Mauricio Cardenas Forero" 
-                     class="img-fluid rounded-circle" 
-                     style="max-width: 200px;">
-            </div>
-            
-            <h3 class="fw-bold">Daniel Mauricio Cardenas Forero</h3>
-            <p class="mb-2">Estudiante de Maestría en Analítica de Datos</p>
-            <p class="mb-4">Universidad Central</p>
-            
-            <!-- Botones de redes sociales -->
-            <div class="d-flex justify-content-center gap-3">
-                <a href="https://github.com/DCardenasf" class="btn btn-primary" target="_blank">GitHub</a>
-                <a href="#" class="btn btn-warning" target="_blank">LinkedIn</a>
-            </div>
-        </div>
     </div>
-
+    
     <footer class="text-center">
         <p class="mb-0">Creado por {{ creador }}</p>
         <p class="mb-0" id="current-year"></p>
