@@ -10,17 +10,25 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bigdata-project.css') }}">
 </head>
 <body>
-    <header class="header">
-        <a href="/"><img src="{{ url_for('static', filename='Images/logo.png') }}" alt="Logo Universidad Central" class="logo" style="width: 100px; height: auto;"></a>
-        <h1>Proyecto BigData</h1>
-        <nav class="nav ul">
-            <ul class="nav justify-content-end">
-                <li class="nav-item"><a class="nav-link" href="/"><b>Inicio</b></a></li>
-                <li class="nav-item"><a class="nav-link" href="/buscador">Buscador</a></li>
-                <li class="nav-item"><a class="nav-link" href="/about">Acerca de</a></li>
-                <li class="nav-item"><a class="nav-link" href="/login">Ingresar</a></li>
-                <li class="nav-item"><a class="nav-link" href="/contacto">Contacto</a></li>
-            </ul>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo-section">
+                <a href="/">
+                    <img src="{{ url_for('static', filename='Images/logo.png') }}" alt="Logo">
+                </a>
+            </div>
+            <div class="project-name">
+                <h1>Proyecto BigData</h1>
+            </div>
+            <nav class="main-navigation">
+                <ul>
+                    <li><a href="/buscador">Buscador</a></li>
+                    <li><a href="/about">Acerca de</a></li>
+                    <li><a href="/contacto">Contacto</a></li>
+                    <li><a href="/login">Iniciar Sesión</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
     
     <!-- Descripción del proyecto -->
