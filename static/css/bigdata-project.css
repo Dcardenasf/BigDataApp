@@ -9,7 +9,7 @@ header {
 }
 
 header img {
-    width: 50px;
+    width: 200px;
     height: auto;
     margin-bottom: 0.5rem;
 }
@@ -20,6 +20,7 @@ nav ul {
     margin: 0;
     display: flex;
     justify-content: center;
+    color: var(--accent-1);
 }
 
 nav a {
