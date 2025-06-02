@@ -10,44 +10,23 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bigdata-project.css') }}">
 </head>
 <body>
-    <header class="main-header">
-        <div class="logo-section">
-            <div class="container mt-4">
-                <div class="text-center">
-                    <a href="/">
-                        <img src="{{ url_for('static', filename='Images/logo.png') }}"
-                        alt="Logo Universidad Central" 
-                        class="logo">
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="header-bottom">
-            <div class="container mt-4">
-                <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <h1 class="project-title">BigData APP</h1>
-                    </div>
-                    <div class="col-md-6">
-                        <nav class="main-navigation">
-                            <ul class="nav justify-content-end">
-                                <li class="nav-item"><a class="nav-link" href="/"><b>Inicio</b></a></li>
-                                <li class="nav-item"><a class="nav-link" href="/buscador">Buscador</a></li>
-                                <li class="nav-item"><a class="nav-link" href="/about">Acerca de</a></li>
-                                <li class="nav-item"><a class="nav-link" href="/login">Ingresar</a></li>
-                                <li class="nav-item"><a class="nav-link" href="/contacto">Contacto</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <header class="header">
+        <a href="/"><img src="{{ url_for('static', filename='Images/logo.png') }}" alt="Logo Universidad Central" class="logo" style="width: 100px; height: auto;"></a>
+        <h1>Proyecto BigData</h1>
+        <nav class="nav ul">
+            <ul class="nav justify-content-end">
+                <li class="nav-item"><a class="nav-link" href="/"><b>Inicio</b></a></li>
+                <li class="nav-item"><a class="nav-link" href="/buscador">Buscador</a></li>
+                <li class="nav-item"><a class="nav-link" href="/about">Acerca de</a></li>
+                <li class="nav-item"><a class="nav-link" href="/login">Ingresar</a></li>
+                <li class="nav-item"><a class="nav-link" href="/contacto">Contacto</a></li>
+            </ul>
     </header>
-
+    
     <!-- Descripción del proyecto -->
     <main class="main-content mt-4">
         <div class="container">
-            <h1 class="text-center mb-4">Proyecto final BigData</h1>
+            <h1 class="text-center mb-4">Proyecto Final BigData</h1>
             <h3 class="text-center mb-4">Maestría en analítica de datos</h3>
             <p class="text-center mb-4">Este proyecto es una aplicación web desarrollada para la gestión y análisis de datos utilizando MongoDB. Permite a los usuarios explorar bases de datos, visualizar colecciones y realizar consultas avanzadas sobre grandes volúmenes de información.</p>
             <div class="row justify-content-center">
