@@ -57,7 +57,7 @@
         <h2>Colecciones en la base de datos: {{ selected_db }}</h2>
         {% if collections_data %}
             <div id="div_colecciones">
-                <a href="{{url_for('crear_coleccion_form' database=selected_db)}}" class="btn btn-success">Crear una colección</a>
+                <a href="{{url_for('crear_coleccion_form', database=selected_db)}}" class="btn btn-success">Crear una colección</a>
                 <table class="table table-striped">
                     <thead>
                         <tr>
