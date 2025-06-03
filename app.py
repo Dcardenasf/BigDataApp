@@ -11,8 +11,8 @@ from elasticsearch import Elasticsearch
 app = Flask(__name__)
 app.secret_key ='secretkey88*'
 
-VERSION_APP ="Versión 1.5 del 6 de junio de 2025"
-CREATOR_APP ="Daniel Cardenas / https://github.com/DCardenasf"
+VERSION_APP ="Versión 1.6.0"
+CREATOR_APP ="Daniel Mauricio Cardenas"
 
 mongo_uri = os.environ.get("MONGO_URI")
 

@@ -6,14 +6,19 @@ header {
     padding: 1rem 0;
     text-align: center;
     box-shadow: var(--shadow-md);
+
 }
 
 header img {
-    width: 200px;
+    width: 500px;
     height: auto;
     margin-bottom: 0.5rem;
 }
-
+.main-navigation .active {
+    font-weight: bold;
+    color: var(--accent-2) !important;
+    border-bottom: 2px solid var(--accent-2);
+}
 nav ul {
     list-style: none;
     padding: 0;
@@ -47,8 +52,7 @@ body {
     background-color: rgba(12, 12, 12, 0.85);
     border-radius: var(--border-radius-lg);
     padding: 3rem;
-    max-width: 800px;
-    width: 90%;
+    width: 100%;
     box-shadow: var(--shadow-lg);
     border: 1px solid rgba(190, 242, 5, 0.1);
     backdrop-filter: blur(8px);
@@ -132,6 +136,13 @@ a:hover {
     box-shadow: none !important;
     border: none !important;
     padding: 0 !important;
+}
+
+footer {
+    background-color: var(--primary-dark);
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
 }
 @media (max-width: 768px) {
     .container {
