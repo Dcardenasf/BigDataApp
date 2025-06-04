@@ -144,6 +144,84 @@ footer {
     text-align: center;
     box-shadow: var(--shadow-md);
 }
+
+.modal {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+.modal h2, .modal h3 {
+    color: var(--accent-1);
+    margin-top: 0;
+}
+
+.modal .close-btn {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.5rem;
+    background: var(--accent-2);
+    color: var(--dark);
+    border: none;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.modal .close-btn:hover {
+    background: var(--accent-1);
+    color: var(--light);
+}
+.modal .content {
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Personalización del modal Bootstrap */
+.modal-content {
+    background: linear-gradient(135deg, var(--primary-dark) 60%, var(--dark) 100%);
+    color: var(--light);
+    border-radius: var(--border-radius-lg);
+    border: 2px solid var(--accent-2);
+    box-shadow: 0 8px 32px 0 rgba(190, 242, 5, 0.15), var(--shadow-lg);
+}
+
+.modal-header, .modal-footer {
+    border: none;
+    background: transparent;
+}
+
+.modal-title {
+    color: var(--accent-1);
+    font-weight: 600;
+}
+
+.btn-primary {
+    background-color: var(--accent-1);
+    color: var(--dark);
+    border: none;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+.btn-primary:hover {
+    background-color: var(--accent-2);
+    color: var(--dark);
+}
+
+.btn-secondary {
+    background-color: var(--dark);
+    color: var(--light);
+    border: none;
+}
+.btn-secondary:hover {
+    background-color: var(--primary-dark);
+    color: var(--accent-2);
+}
+
 @media (max-width: 768px) {
     .container {
         padding: var(--spacing-md);
