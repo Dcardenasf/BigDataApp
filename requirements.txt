@@ -3,3 +3,4 @@ pymongo == 4.13.0
 gunicorn == 23.0.0
 neo4j == 5.28.1
 elasticsearch == 8.17.1
+ijson == 3.1.4

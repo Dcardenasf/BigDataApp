@@ -7,6 +7,7 @@ from datetime import datetime
 import json
 import re
 from elasticsearch import Elasticsearch
+from elasticsearch.helpers import bulk
 
 app = Flask(__name__)
 app.secret_key ='secretkey88*'
@@ -237,9 +238,11 @@ def crear_coleccion():
                         with open(file_path, 'r', encoding='utf-8') as f:
                             try:
                                 json_data = json.load(f)
-                                # Si el JSON es una lista, insertar cada elemento
+                                # Si el JSON es una lista, insertar en lotes de 100
                                 if isinstance(json_data, list):
-                                    collection.insert_many(json_data)
+                                    for i in range(0, len(json_data), 100):
+                                        batch = json_data[i:i+100]
+                                        collection.insert_many(batch)
                                 else:
                                     collection.insert_one(json_data)
                             except json.JSONDecodeError:
@@ -475,13 +478,16 @@ def elastic_agregar_documentos():
                         try:
                             with open(file_path, 'r', encoding='utf-8') as f:
                                 json_data = json.load(f)
-                                if isinstance(json_data, list):
-                                    for doc in json_data:
-                                        cliente_elasticsearch.index(index=INDEX_NAME, document=doc)
-                                        success_count += 1
-                                else:
-                                    cliente_elasticsearch.index(index=INDEX_NAME, document=json_data)
-                                    success_count += 1
+                                docs = json_data if isinstance(json_data, list) else [json_data]
+                                # Insertar en lotes de 100 usando bulk
+                                for i in range(0, len(docs), 100):
+                                    batch = docs[i:i+100]
+                                    actions = [
+                                        {"_index": INDEX_NAME, "_source": doc}
+                                        for doc in batch
+                                    ]
+                                    success, _ = bulk(cliente_elasticsearch, actions)
+                                    success_count += success
                         except Exception as e:
                             error_count += 1
                             print(f"Error procesando {file}: {str(e)}")
