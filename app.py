@@ -8,6 +8,7 @@ import json
 import re
 from elasticsearch import Elasticsearch
 from elasticsearch.helpers import bulk
+import shutil
 
 app = Flask(__name__)
 app.secret_key ='secretkey88*'
@@ -225,8 +226,10 @@ def crear_coleccion():
         with zipfile.ZipFile(zip_file) as zip_ref:
             # Crear un directorio temporal para extraer los archivos
             temp_dir = os.path.join(os.path.dirname(__file__), 'temp')
+            # LIMPIEZA DEL TEMPORAL ANTES DE USARLO
+            if os.path.exists(temp_dir):
+                shutil.rmtree(temp_dir)
             os.makedirs(temp_dir, exist_ok=True)
-            
             # Extraer los archivos
             zip_ref.extractall(temp_dir)
             
@@ -458,12 +461,13 @@ def elastic_agregar_documentos():
             
             # Crear directorio temporal
             temp_dir = os.path.join(os.path.dirname(__file__), 'temp')
+            # LIMPIEZA DEL TEMPORAL ANTES DE USARLO
+            if os.path.exists(temp_dir):
+                shutil.rmtree(temp_dir)
             os.makedirs(temp_dir, exist_ok=True)
-            
             # Guardar y extraer el archivo ZIP
             zip_path = os.path.join(temp_dir, zip_file.filename)
             zip_file.save(zip_path)
-            
             with zipfile.ZipFile(zip_path) as zip_ref:
                 zip_ref.extractall(temp_dir)
             
