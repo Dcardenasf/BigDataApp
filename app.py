@@ -9,6 +9,9 @@ import re
 from elasticsearch import Elasticsearch
 from elasticsearch.helpers import bulk
 import shutil
+import io
+import gc
+
 
 app = Flask(__name__)
 app.secret_key ='secretkey88*'
@@ -224,45 +227,33 @@ def crear_coleccion():
         
         # Procesar el archivo ZIP
         with zipfile.ZipFile(zip_file) as zip_ref:
-            # Crear un directorio temporal para extraer los archivos
-            temp_dir = os.path.join(os.path.dirname(__file__), 'temp')
-            # LIMPIEZA DEL TEMPORAL ANTES DE USARLO
-            if os.path.exists(temp_dir):
-                shutil.rmtree(temp_dir)
-            os.makedirs(temp_dir, exist_ok=True)
-            # Extraer los archivos
-            zip_ref.extractall(temp_dir)
-            
-            # Procesar cada archivo JSON
-            for root, _, files in os.walk(temp_dir):
-                for file in files:
-                    if file.endswith('.json'):
-                        file_path = os.path.join(root, file)
-                        with open(file_path, 'r', encoding='utf-8') as f:
-                            try:
-                                json_data = json.load(f)
-                                # Si el JSON es una lista, insertar en lotes de 100
-                                if isinstance(json_data, list):
-                                    for i in range(0, len(json_data), 100):
-                                        batch = json_data[i:i+100]
+            # Extraer todos los archivos JSON del ZIP
+            for file_info in zip_ref.infolist():
+                if file_info.filename.endswith('.json'):
+                    with zip_ref.open(file_info.filename) as f:
+                        try:
+                            json_data = json.load(io.TextIOWrapper(f, encoding='utf-8'))
+
+                            if isinstance(json_data, list):
+                                # Insertar documentos en lotes
+                                for i in range(0, len(json_data), 100):
+                                    batch = json_data[i:i+100]
+                                    try:
                                         collection.insert_many(batch)
-                                else:
-                                    collection.insert_one(json_data)
-                            except json.JSONDecodeError:
-                                print(f"Error al procesar el archivo {file}")
-                            except Exception as e:
-                                print(f"Error al insertar datos del archivo {file}: {str(e)}")
-            
-            # Limpiar el directorio temporal
-            for root, dirs, files in os.walk(temp_dir, topdown=False):
-                for file in files:
-                    os.remove(os.path.join(root, file))
-                for dir in dirs:
-                    os.rmdir(os.path.join(root, dir))
-            os.rmdir(temp_dir)
-        
-        return redirect(url_for('gestion_proyecto', database=database))
-        
+                                    except Exception as e:
+                                        print(f"Error al insertar lote: {str(e)}")
+                            else:
+                                # Insertar un único documento
+                                collection.insert_one(json_data)
+                        except json.JSONDecodeError:
+                            print(f"Error al decodificar JSON en el archivo {file_info.filename}")
+                        except Exception as e:
+                            print(f"Error al procesar el archivo {file_info.filename}: {str(e)}")
+                        finally:
+                            del json_data
+                            gc.collect()
+        return redirect(url_for('gestion_proyecto', database=database))   
+    
     except Exception as e:
         return render_template('gestion/crear_coleccion.html',
                             error_message=f'Error al crear la colección: {str(e)}',
